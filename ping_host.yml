@@ -1,0 +1,7 @@
+- hosts: all
+  remote_user: ansible
+  tasks:
+  - name: ping test 
+    ping:
+    become: yes
+    become_user: root
