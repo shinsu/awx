@@ -1,0 +1,10 @@
+- name: Send an email to a single recipient that the deployment was successful
+  community.general.sendgrid:
+    username: "shinsu.kim@gmail.com"
+    password: "sendgrid1234567890!"
+    from_address: "shinsu.kim@ericsson.com"
+    to_addresses:
+      - "shinsu.kim@ericsson.com"
+    subject: "Deployment success."
+    body: "The most recent Ansible deployment was successful."
+  delegate_to: localhost
