@@ -1,4 +1,4 @@
-- hosts: linux
+- hosts: all
   tasks:
     - name: Check for read only file systems
       shell: 'awk ''$4 ~ /(^|,)ro(,|$)/'' /proc/mounts|sed ''/tmp/,/^/d''' 
