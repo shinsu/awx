@@ -1,0 +1,10 @@
+- hosts: linux
+  tasks:
+    - name: Check for read only file systems
+      shell: 'awk ''$4 ~ /(^|,)ro(,|$)/'' /proc/mounts|sed ''/tmp/,/^/d''' 
+      register: result
+      changed_when: result.stdout != ""
+      failed_when: "'SUCCESS' in result.stderr"
+    - name: Check
+      debug: msg="No Read-Only Filesystem detected."
+      when: result.stdout == ""
