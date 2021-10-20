@@ -6,5 +6,5 @@
       changed_when: result.stdout != ""
       failed_when: "'SUCCESS' in result.stderr"
     - name: Check
-      debug: msg="No Read-Only Filesystem detected."
-      when: result.stdout == ""
+      debug: msg="Read-Only Filesystem detected."
+      when: result.stdout != ""
